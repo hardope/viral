@@ -1,2 +1,3 @@
 main/views.py
 main/models.py
+db.sqlite3
