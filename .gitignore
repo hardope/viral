@@ -1,3 +1,4 @@
 main/views.py
 main/models.py
+main/static/posts
 db.sqlite3
