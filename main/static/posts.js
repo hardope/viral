@@ -6,7 +6,7 @@ function load() {
     let url = window.location.origin
     let request = new XMLHttpRequest();
     let body = document.querySelector('#body');
-    request.open("GET", url + "/posts/open");
+    request.open("GET", url + "/fetch_posts");
     request.send();
     request.onload = () => {
        if (request.status === 200) {
