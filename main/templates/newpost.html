@@ -6,18 +6,16 @@
 {% block body %}
 <script>
       function validate(){
-            if(document.getElementById("pic").value != "") {
-                  let label = document.getElementById("pic_label")
-                  label.style.background = "green";
-            }
-            if(document.getElementById("video").value != "") {
-                  let label = document.getElementById("video_label")
+            if(document.getElementById("media").value != "") {
+                  let label = document.getElementById("media_label")
                   label.style.background = "green";
             }
       }
 
       function submitted(){
-            document.getElementById("submitted").style.display = "block"
+            if(document.getElementById("pic").value != "" && document.getElementById("video").value != ""){
+                  document.getElementById("submitted").style.display = "block"
+            }
       }
 
 </script>
@@ -59,18 +57,15 @@
       </div>
 </center>
 <form action="/new_post" method="post" onsubmit="submitted()" enctype="multipart/form-data">
+      {% csrf_token %}
       <center>
             <h1>Create New Post</h1>
             <textarea name="post" maxlength="1000" style="width:500px; padding: 10px; height: 200px; border-radius: 10px;">{{about}}</textarea>
       </center>
       <center>
-            <input type="file" id="pic" onchange="validate()" name="pic" accept="image/*" value="" hidden>
+            <input type="file" id="media" onchange="validate()" name="media" accept="image/*,video/mp4" value="" hidden>
             <div id="label_cont">
-                  <label for="pic" id="pic_label">Upload Picture &#128206;</label>
-            </div>
-            <input type="file" id="video" onchange="validate()" name="video" accept="video/mp4" value="" hidden>
-            <div id="label_cont">
-                  <label for="video" id="video_label">Upload Video &#128206;</label>
+                  <label for="media" id="media_label">Upload Media &#128206;</label>
             </div>
       </center>
       <center>
