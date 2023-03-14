@@ -4,14 +4,12 @@ document.addEventListener("DOMContentLoaded", function () {
 })
 function notification() {
      while (true) {
-          let username = document.getElementById("trig_not").value
-
           let url = window.location.origin
           let request = new XMLHttpRequest();
 
           /* Fetch notification */
 
-          request.open("GET", url + "/notification/" + username);
+          request.open("GET", url + "/notification");
           request.send();
           request.onload = () => {
                a = 0
@@ -31,14 +29,13 @@ function notify() {
      let a = 0
      let not = document.getElementById("notify")
      let notify_body = document.getElementById("notify_body")
-     input = document.getElementById("trig_not").value
 
      /* Display Box */
      not.style.display = "block"
      let url = window.location.origin
      let request = new XMLHttpRequest();
      /* Fetch notification */
-     request.open("GET", url + "/notification/" + input);
+     request.open("GET", url + "/notification");
      request.send();
      request.onload = () => {
           a = 0
