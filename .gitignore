@@ -2,4 +2,5 @@ main/views.py
 main/models.py
 main/static/posts
 viral/settings.py
+viral/__pycache__
 db.sqlite3
