@@ -1,4 +1,5 @@
 main/views.py
 main/models.py
 main/static/posts
+viral/settings.py
 db.sqlite3
