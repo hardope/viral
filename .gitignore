@@ -1,6 +1,6 @@
 main/views.py
 main/models.py
-main/static/posts
+main/static
 viral/settings.py
 viral/__pycache__
 db.sqlite3

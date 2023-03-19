@@ -4,7 +4,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 {% block body %}
-    <script src="/static/posts.js"></script>
     <script src="/static/time.js"></script>
     <script src="/static/like.js"></script>
     <link rel="stylesheet" href="/static/posts.css">
@@ -26,6 +25,36 @@
     </div>
 
     <div id="body" style="font-size: 40px !important;">
-
-    </div>
+        {% for i in posts %}
+            <div class="name_container">
+                <a class="a" href="/profile/{{i.name}}" style="display: inline-flex">
+                    <img src="/static/favicon.ico" style="width: 50px; border-radius: 25px; margin-top: 20px; margin-left: 0px">
+                    <div style="margin-left: 10px; margin-top: 30px;">
+                        {{i.name}}
+                    </div>
+                </a>
+            </div>
+                <div class="div">
+                    <div>{{i.article}}</div>
+                </div>
+                {% if i.media != "empty" %}
+                    {% if i.media == "mp4" %}
+                        <video src="/static/posts/{{i.id}}.mp4" controls loop preload="auto"></video>
+                    {% else %}
+                        <a href="/static/posts/{{i.id}}.jpg">
+                            <img src="/static/posts/{{i.id}}.jpg">
+                        </a>
+                    {% endif %}
+                {% endif %}
+                <div class="container">
+                    {% if i.like_value == "True" %}
+                        <p class="react" value="{{i.like_value}}" id="{{i.id}}" onclick="like('{{i.id}}')">{{i.likes}} ❤️</p>
+                    {% else %}
+                        <p class="react" value="{{i.like_value}}" id="{{i.id}}" onclick="like('{{i.id}}')">{{i.likes}} 🖤</p>
+                    {% endif %}
+                    <a href="/comment/{{i.id}}"><p class="comment">{{i.comments}} 💬</p></a>
+                    <p class="v_like" onclick="view_likes('{{i.id}}')">📊</p>
+                </div>
+            {% endfor %}
+        </div>
 {% endblock %}

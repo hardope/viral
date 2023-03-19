@@ -66,8 +66,13 @@ function load() {
                 react.setAttribute('value', obj.like_value)
                 react.setAttribute('id', obj.id)
                 react.setAttribute('style', 'inline')
-                react.setAttribute('onclick', 'like(' + obj.id + ')')
-                react.textContent = obj.likes;
+                react.setAttribute('onclick', "like(" + toString(obj.id) + ")")
+                if (obj.like_value == "True") {
+                    react.textContent = obj.likes + "❤️"
+                } else {
+                    react.textContent = obj.likes + "🖤"
+                }
+                
                 container.appendChild(react)
                 var link = document.createElement('a')
                 link.setAttribute('href', '/comment/' + obj.id)
