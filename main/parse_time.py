@@ -9,14 +9,12 @@ def get_time(inp):
     day = int(currentTime.day)
     hour = int(currentTime.hour)
     minute = int(currentTime.minute)
-    second = int(currentTime.second)
 
     old_year = int(inp.year)
     old_month = int(inp.month)
     old_day = int(inp.day)
     old_hour = int(inp.hour)
     old_minute = int(inp.minute)
-    old_second = int(inp.second)
 
     if year == old_year:
         if month == old_month:
@@ -43,8 +41,9 @@ def get_time(inp):
                     c_day += 6
                 c_day = days[c_day]
                 result = f"{c_day} at {old_hour}:{old_minute:02d}"
+            else:
+                result = f"{months[old_month - 1]} {old_day} at {old_hour}:{old_minute:02d}"
 
 
 
     return result
-  
