@@ -33,16 +33,17 @@
                         {{i.name}}
                     </div>
                 </a>
+                <div style="margin-top: -10px; margin-left: 30px; font-size 1px !important;">{{i.created_at}}</div>
             </div>
                 <div class="div">
                     <div>{{i.article}}</div>
                 </div>
                 {% if i.media != "empty" %}
                     {% if i.media == "mp4" %}
-                        <video src="/static/posts/{{i.id}}.mp4" controls loop preload="auto"></video>
+                        <video src="/media/posts/{{i.id}}.mp4" controls loop preload="auto"></video>
                     {% else %}
-                        <a href="/static/posts/{{i.id}}.jpg">
-                            <img src="/static/posts/{{i.id}}.jpg">
+                        <a href="/media/posts/{{i.id}}.jpg">
+                            <img src="/media/posts/{{i.id}}.jpg">
                         </a>
                     {% endif %}
                 {% endif %}
