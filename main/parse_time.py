@@ -44,6 +44,10 @@ def get_time(inp):
             else:
                 result = f"{months[old_month - 1]} {old_day} at {old_hour}:{old_minute:02d}"
 
+        else:
+            result = f"{months[old_month - 1]} {old_day} at {old_hour}:{old_minute:02d}"
+    else:
+        result = f"{months[old_month - 1]} {old_day}, {old_year} at {old_hour}:{old_minute:02d}"
 
 
     return result
