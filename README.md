@@ -6,6 +6,12 @@ Social Media Platform & Instant Messaging Web Application<br>
 
 ## Migration of [Click Chat](https://github.com/hardope/click_chat) From Python Flask Framework to Python Django
 
+## Completed Features
+* Create Posts with support for images and videos
+* Like Posts
+* View Likes
+
+
 [Link to website](https://hardope.pythonanywhere.com)
 
 [Link to New Site](https://clickviral.pythonanywhere.com)
