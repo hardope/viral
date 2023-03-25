@@ -1,3 +1,8 @@
+"""
+parse datetime object to human readable time
+"""
+
+
 from datetime import datetime
 
 months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
