@@ -97,7 +97,7 @@ function up(){
         <center>
           <a href="/chats"  style="margin-right: 10px;"><img src="/static/chat.png" style="width: 50px; border-radius: 25px;"></a>
           <a href="/users"  style="margin-right: 10px;"><img src="/static/new.png" style="width: 55px; border-radius: 25px;"></a>
-          <a href="/profile/{{username}}"><img src="/static/profile.png" style="width: 50px; border-radius: 25px;"></a>
+          <a href="/profile/{{request.user}}"><img src="/static/profile.png" style="width: 50px; border-radius: 25px;"></a>
         </center>
         <div id="mySidebar" class="sidebar" style="position: absolute;">
           <br>
@@ -107,7 +107,7 @@ function up(){
           <div class="nav_link"><a href="/chats">Chats</a></div>
           <div class="nav_link"><a href="/users">New Chat</a></div>
           <div class="nav_link"><a href="/about">About</a></div>
-          <div class="nav_link"><a href="/profile/{{username}}">Profile</a></div>
+          <div class="nav_link"><a href="/profile/{{request.name}}">Profile</a></div>
           <div class="nav_link"><a href="/logout">Logout</a></div>
           <div class="nav_link"><a href="/static/ClickChat.apk">Download Mobile App</a></div>
         </div>
