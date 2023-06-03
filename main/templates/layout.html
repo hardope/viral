@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <link rel="icon" href="/static/icon.png" type="image/x-icon">
-<div id="notify">
-  <div>
-    <span id="close" onclick="close_notify()" style="margin-top: -30px;">&times;</span>
-    <h3 id="notify_header"></h3>
-  </div>
-  <div id="notify_body">
 
-  </div>
-</div>
 <script>
 document.addEventListener('click', close_likes())
 document.addEventListener('click', closeNav())
@@ -32,7 +24,15 @@ function up(){
   window.scrollTo(0, 0);
 }
 </script>
+<div id="notify">
+  <div>
+    <span id="close" onclick="close_notify()" style="margin-top: -30px;">&times;</span>
+    <h3 id="notify_header"></h3>
+  </div>
+  <div id="notify_body">
 
+  </div>
+</div>
 <html style="font-size: 16px;" lang="en">
     <head>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -44,19 +44,18 @@ function up(){
     <meta name="google-site-verification" content="VreH62dt2UzMQRKByNADiGaWM8KW4UWAmPJhnavGlTU" />
     <meta name="viewport" content="width=device-width, initial-scale=0.5">
     <meta charset="utf-8">
-    <title>Click Chat</title>
+    <title>ClickViral</title>
     <link rel="stylesheet" href="/static/nicepage.css" media="screen">
-<link rel="stylesheet" href="/static/index.css" media="screen">
     <script class="u-script" type="text/javascript" src="/static/jquery.js" "="" defer=""></script>
     <script class="u-script" type="text/javascript" src="/static/nicepage.js" "="" defer=""></script>
     <meta name="keywords" content="chat, Social Media, messenger, Instant Messenger">
     <meta name="og:keywords" content="chat">
-     <meta property="title" content="Click Chat">
+     <meta property="title" content="ClickViral">
      <meta property="image" content="/static/icon.png">
      <meta property="description" content="Social Media Platform & Instant Messenger Developed and Designed By Opeoluwa Adeyeri">
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="theme-color" content="#478ac9">
-     <meta property="og:title" content="Click Chat">
+     <meta property="og:title" content="ClickViral">
      <meta property="og:type" content="website">
      <meta property="og:image" content="/static/icon.png">
      <meta property="og:description" content="Social Media Platform & Instant Messenger Developed and Designed By Opeoluwa Adeyeri">
@@ -95,7 +94,7 @@ function up(){
         </nav>
         <br>
         <center>
-          <a href="/chats"  style="margin-right: 10px;"><img src="/static/chat.png" style="width: 50px; border-radius: 25px;"></a>
+          <a href="/chat/users"  style="margin-right: 10px;"><img src="/static/chat.png" style="width: 50px; border-radius: 25px;"></a>
           <a href="/users"  style="margin-right: 10px;"><img src="/static/new.png" style="width: 55px; border-radius: 25px;"></a>
           <a href="/profile/{{request.user}}"><img src="/static/profile.png" style="width: 50px; border-radius: 25px;"></a>
         </center>
@@ -109,7 +108,7 @@ function up(){
           <div class="nav_link"><a href="/about">About</a></div>
           <div class="nav_link"><a href="/profile/{{request.name}}">Profile</a></div>
           <div class="nav_link"><a href="/logout">Logout</a></div>
-          <div class="nav_link"><a href="/static/ClickChat.apk">Download Mobile App</a></div>
+          <div class="nav_link"><a href="/static/ .apk">Download Mobile App</a></div>
         </div>
       </div></header>
 
