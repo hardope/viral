@@ -1,43 +1,43 @@
 {% extends "layout2.html" %}
 
 <meta name="viewport" content="initial-scale=1, width=device-width">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-<link href="/static/style.css" rel="stylesheet">
-<meta charset="utf-8">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
 {% block body %}
+<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/static/login.js"></script>
+<script>
+     var csrftoken = '{{ csrf_token }}';
+</script>
      <center><p style="margin-top: 30px;">Click Chat Is a Social Media Platform & Instant Messenger Developed and Designed By Opeoluwa Adeyeri</p></center>
-     {% if message %}
-          <center><p style="width: 500px; height: 50px; border-radius: 15px; text-align: center; background-color: rgba(255, 134, 134, 0.9)">{{message}}</p></center>
-     {% endif %}
-     <form action="/login" method="post">
-          {% csrf_token %}
-          <section class="u-clearfix u-section-1" id="sec-afdb">
-               <div class="u-clearfix u-sheet u-sheet-1">
-                    <div class="u-form u-login-control u-form-1">
-                         <div class="u-form-group u-form-name">
-                              <label for="username-c4f9" class="u-label">Username *</label>
-                              <input type="text" name="username" placeholder="Enter your Username" id="username-c4f9" name="username" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
-                         </div>
-                         <div class="u-form-group u-form-password">
-                              <label for="password-c4f9" class="u-label">Password *</label>
-                              <input type="password" name="password" placeholder="Enter your Password" id="password-c4f9" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
-                         </div>
-                         <div class="u-form-checkbox u-form-group">
-                              <input type="checkbox" id="checkbox-c4f9" name="remember" value="On">
-                              <label for="checkbox-c4f9" class="u-label">Remember me</label>
-                         </div>
-                         <div class="u-align-center u-form-group u-form-submit">
-                              <button  type="submit" id='button' style="font-size: 60px; color: black; border: 0ch; margin-bottom: 2%; border-radius: 10px 10px 10px 10px;  width: 200px; height: 50px;">Log In</button>
-                         </div>
-                         <input type="hidden" value="" name="recaptchaResponse">
-                         <a href="/register">Create account</a>
+     {% csrf_token %}
+     <center><h1>Sign In</h1></center>
+     <center><h1 id="details_message"></h1></center>
+     <section class="u-clearfix u-section-1" id="sec-afdb">
+          <div class="u-clearfix u-sheet u-sheet-1">
+               <div class="u-form u-login-control u-form-1">
+                    <div class="u-form-group u-form-name">
+                         <label for="username-c4f9" class="u-label">Username *</label>
+                         <input type="text" name="username" id="username" placeholder="Enter your Username" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
                     </div>
+                    <center><h1>Or</h1></center>
+                    <div class="u-form-group u-form-name">
+                         <label for="username-c4f9" class="u-label">Email *</label>
+                         <input type="text" name="email" id="email" placeholder="Email" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+                    </div>
+                    <div class="u-form-group u-form-password">
+                         <label for="password-c4f9" class="u-label">Password *</label>
+                         <input type="password" name="password" placeholder="Enter your Password" id="password" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+                    </div>
+                    <div class="u-form-checkbox u-form-group">
+                         <input type="checkbox" id="checkbox-c4f9" name="remember" value="On">
+                         <label for="checkbox-c4f9" class="u-label">Remember me</label>
+                    </div>
+                    <div class="u-align-center u-form-group u-form-submit">
+                         <button onclick="load_login()" id='button' style="font-size: 60px; color: black; border: 0ch; margin-bottom: 2%; border-radius: 10px 10px 10px 10px;  width: 200px; height: 50px;">Sign In</button>
+                    </div>
+                    <input type="hidden" value="" name="recaptchaResponse">
+                    <a href="/register">Create account</a>
                </div>
-          </section>
-     </form>
+          </div>
+     </section>
 {% endblock %}
