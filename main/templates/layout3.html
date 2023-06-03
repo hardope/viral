@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<link rel="icon" href="/static/icon.png" style="border-radius: 25px" type="image/x-icon">
+<div id="notify">
+  <div>
+    <span id="close" onclick="close_notify()" style="margin-top: -30px;">&times;</span>
+    <h3 id="notify_header"></h3>
+  </div>
+  <div id="notify_body">
+  </div>
+</div>
+<html style="font-size: 16px;" lang="en"><head>
+    <link rel="stylesheet" href="/static/nav_bar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/notify.css">
+    <link rel="stylesheet" href="/static/posts.css">
+    <script src="/static/notify.js"></script>
+    <link rel="icon" href="/static/icon.jpg" media="screen">
+    <meta name="google-site-verification" content="VreH62dt2UzMQRKByNADiGaWM8KW4UWAmPJhnavGlTU" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    <meta charset="utf-8">
+    <title>ClickViral</title>
+    <script>
+      document.addEventListener('click', close_likes())
+      document.addEventListener('click', closeNav())
+      document.addEventListener('DOMContentLoaded', function(){
+          window.addEventListener('offline', (e) => {
+          // User is offline
+          alert("You are disconnected from the Internet");
+          })
+      });
+      function openNav() {
+          document.getElementById("mySidebar").style.height = "800px";
+      
+          }
+      
+          /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+      function closeNav() {
+        document.getElementById("mySidebar").style.height = "0";
+        document.getElementById("mysidebar").style.paddingtop = "0px";
+      }
+      function up(){
+        window.scrollTo(0, 0);
+      }
+      </script>
+      
+    <link rel="stylesheet" href="/static/nicepage.css" media="screen">
+    <script class="u-script" type="text/javascript" src="/static/jquery.js" "="" defer=""></script>
+    <script class="u-script" type="text/javascript" src="/static/nicepage.js" "="" defer=""></script>
+    <meta name="keywords" content="chat, Social Media, messenger, Instant Messenger">
+    <meta name="og:keywords" content="chat">
+     <meta property="title" content="ClickViral">
+     <meta property="image" content="/static/icon.png">
+     <meta property="description" content="Social Media Platform & Instant Messenger Developed and Designed By Opeoluwa Adeyeri">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="theme-color" content="#478ac9">
+     <meta property="og:title" content="ClickViral">
+     <meta property="og:type" content="website">
+     <meta property="og:image" content="/static/icon.png">
+     <meta property="og:description" content="Social Media Platform & Instant Messenger Developed and Designed By Opeoluwa Adeyeri">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "",
+		"logo": "images/icon.png"
+}</script>
+  </head>
+  <script>
+      var a = 0;
+  </script>
+  <body data-home-page="index.html" data-home-page-title="index" class="u-body u-stick-footer u-xl-mode" data-lang="en"><header class="u-clearfix u-header u-header" id="sec-2f22"><div class="u-clearfix u-sheet u-sheet-1">
+        <a href="/" class="u-image u-logo u-image-1" data-image-width="512" data-image-height="512">
+          <img src="/static/icon.png" class="u-logo-image u-logo-image-1">
+        </a>
+        <nav class="u-menu u-menu-one-level u-offcanvas u-menu-1">
+          <div class="u-custom-menu">
+              <div style="display: inline-flex;">
+                <button class="openbtn" style="margin-left: 200%; background-color: white; border: none;" value="{{username}}" id="trig_not" onclick="notify()" ><i class="fa fa-bell" id="bell" style="font-size:80px;color:black"></i></button>
+                <button style="margin-left: 10%;" class="openbtn" onclick="openNav()" >&#9776;</button>
+            </div>
+          </div>
+        </nav>
+        <div id="mySidebar" class="sidebar" style="position: absolute;">
+          <br>
+          <br>
+          <a href="javascript:void(0)" style="font-size: 300%" class="closebtn" onclick="closeNav()">&#x2715;</a>
+          <div class="nav_link"><a href="/">Home</a></div>
+          <div class="nav_link"><a href="/chats">Chats</a></div>
+          <div class="nav_link"><a href="/users">New Chat</a></div>
+          <div class="nav_link"><a href="/about">About</a></div>
+          <div class="nav_link"><a href="/profile/{{username}}">Profile</a></div>
+          <div class="nav_link"><a href="/logout">Logout</a></div>
+          <div class="nav_link"><a href="/static/ClickChat.apk">Download Mobile App</a></div>
+        </div>
+      </div></header>
+
+
+        {% block body %}
+        {% endblock %}
+
+</body></html>
