@@ -32,7 +32,7 @@ function get_time(input) {
                         else {
                             result = (seconds - old_seconds) + " Seconds ago."
                         }
-                        
+
                     }
                     else {
                         if ((minutes - old_minutes) < 2){
