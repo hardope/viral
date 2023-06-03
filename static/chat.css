@@ -1,3 +1,31 @@
+#message {
+  margin-bottom: 30px;
+  padding: 10px;
+  border: none;
+  margin-left: 40px;
+  background-color: rgb(221, 221, 221);
+  border-radius: 15px;
+  width: 450px;
+  height: 50px
+}
+#send_message {
+  border: none;
+  border-radius: 15px;
+  width: 70px;
+  height: 40px;
+  background-color: rgb(221, 221, 221);
+}
+.recipient_name {
+  margin-left: 30px;
+}
+.profile_pic{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-left: 30px;
+  margin-top: 5px;
+}
+
 html {
   scroll-behavior: smooth;
 }
