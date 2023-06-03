@@ -4,10 +4,16 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 {% block body %}
-    <script src="/static/time.js"></script>
-    <script src="/static/like.js"></script>
-    <link rel="stylesheet" href="/static/posts.css">
-    <script src="/static/view_likes.js"></script>
+<script>
+    var username = '{{request.user}}';
+    var csrftoken = '{{ csrf_token }}';
+</script>
+<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/static/time.js"></script>
+<script src="/static/like.js"></script>
+<script src="/static/posts.js"></script>
+<script src="/static/view_likes.js"></script>
+<link rel="stylesheet" href="/static/posts.css">
 
     <div id="like_viewer">
         <span id="close" onclick="close_likes()">&times;</span>
@@ -15,60 +21,65 @@
 
         </div>
     </div>
+    <div id="main" class="block">
+        <div style="margin-top: 40px; margin-bottom: 20px;">
+            <button onclick="new_post()" id="new_post_button">Create Post</button>
+        </div>
 
-    <div style="margin-top: 40px; margin-bottom: 20px;">
+        <div id="body" style="font-size: 40px !important;">
 
-        <form action="/new_post">
-            <button type="submit" style="border-radius: 10px; margin-left: 20%; height: 40px; border-color: rgb(224, 227, 229);">Create Post</button>
-        </form>
+        </div>
+    </div>
+    <center>
+    <div id="create_post" class="block">
+
+            <h1>Create New Post <button onclick="close_all()" class="cancel_button">Cancel</button></h1>
+            <form method="post" id="new_post_form" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div id="upload_message"></div>
+                <textarea name="post" id="article" maxlength="1000"></textarea>
+                <input type="file" id="media" onchange="validate()" name="media" accept="image/*,video/mp4" value="" hidden>
+                <div id="label_cont">
+                    <label for="media" id="media_label">Upload Media &#128206;</label>
+                </div>
+                <button onclick="new_post()" id='button' class="submit_button">Create Post</button>
+            </form>
 
     </div>
+    </center>
+    <center>
+    <div id="edit_post" class="block">
 
-    <div id="body" style="font-size: 40px !important;">
-        {% for i in posts %}
-            <div class="name_container">
-                <a class="a" href="/profile/{{i.name}}" style="display: inline-flex">
-                    <img src="/static/favicon.ico" style="width: 50px; border-radius: 25px; margin-top: 20px; margin-left: 0px">
-                    <div style="margin-left: 10px; margin-top: 30px;">
-                        {{i.name}}
+        <div style="display: inline-flex">
+            <b id="edit_message">Edit Post </b>
+            <button onclick="close_all()" class="cancel_button">Cancel</button>
+        </div>
+        <br>
+        <div>
+            <div id="post_media"></div>
+            <textarea id="edit_article" name="post" maxlength="1000">{{post.raw_article}}</textarea>
+            <br>
+            <button id='submit_post' class="submit_button">Save Post</button>
+        </div>
+        <div>
+            <button id="delete-btn">Delete Post</button>
+            <div style="display: none;" id="confirm">
+                <h2><b>Are You Sure</b></h2>
+                <div style="display: inline-flex; margin-bottom: 30px">
+                    <div>
+                        <button id="btn-yes"  onclick="none">
+                            Yes
+                        </button>
+                        <button id="btn-no">
+                            No
+                        </button>
                     </div>
-                </a>
-                <div style="margin-top: -10px; margin-left: 30px; font-size 1px !important;">
-                    {{i.created_at}}
-                    {% if i.name == request.user %}
-                        <a href="edit_post/{{i.id}}"><button style="background-color: lightblue;border: none; margin-left: 90%; width: 40px; height:40px; border-radius: 20px; margin-bottom: 10px;" type="submit">✏️</button></a>
-                    {% else %}
-                        {% if i.edited == True %}
-                        <button style="background-color: lightblue;border: none; margin-left: 80%; width: 100px; height:40px; border-radius: 15px; margin-bottom: 10px;" type="submit">Edited</button>
-                        {% endif %}
-                    {% endif %}
                 </div>
             </div>
-                <div class="div">
-                    <div>
-                        {% for i in i.article %}
-                            <{{i.tag}}>{{i.text}}</{{i.tag}}>
-                        {% endfor %}
-                    </div>
-                </div>
-                {% if i.media != "empty" %}
-                    {% if i.media == "mp4" %}
-                        <video src="/media/posts/{{i.id}}.mp4" controls loop preload="auto"></video>
-                    {% else %}
-                        <a href="/media/posts/{{i.id}}.{{i.media}}">
-                            <img src="/media/posts/{{i.id}}.{{i.media}}">
-                        </a>
-                    {% endif %}
-                {% endif %}
-                <div class="container">
-                    {% if i.like_value == "True" %}
-                        <p class="react" value="{{i.like_value}}" id="{{i.id}}" onclick="like('{{i.id}}')">{{i.likes}} ❤️</p>
-                    {% else %}
-                        <p class="react" value="{{i.like_value}}" id="{{i.id}}" onclick="like('{{i.id}}')">{{i.likes}} 🖤</p>
-                    {% endif %}
-                    <a href="/comment/{{i.id}}"><p class="comment">{{i.comments}} 💬</p></a>
-                    <p class="v_like" onclick="view_likes('{{i.id}}')">📊</p>
-                </div>
-            {% endfor %}
         </div>
+    </div>
+    </center>
+    <div id="comment_block" style="display: none; margin-top: 35px;">
+        
+    </div>
 {% endblock %}
