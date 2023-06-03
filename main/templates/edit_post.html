@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+      <meta name="viewport" content="initial-scale=1, width=device-width">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+{% block body %}
+<script>
+    function close_opt(){
+        let obj = document.getElementById("confirm")
+        obj.style.display = "None"
+    }
+    function check(){
+        let obj = document.getElementById("confirm")
+        obj.style.display = "block"
+    }
+</script>
+<center>
+</center>
+<div style="margin-top: 20px">
+{% if post.media != "empty" %}
+    {% if post.media == "mp4" %}
+        <video src="/media/posts/{{post.id}}.mp4" controls loop preload="auto"></video>
+    {% else %}
+        <a href="/media/posts/{{post.id}}.{{post.media}}">
+            <img src="/media/posts/{{post.id}}.{{post.media}}">
+        </a>
+    {% endif %}
+{% endif %}
+</div>
+{% if editable == True %}
+<form action="/edit_post/{{post.id}}" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <center>
+            <h1>Edit Post</h1>
+            <textarea name="post" maxlength="1000" style="width:500px; padding: 10px; height: 200px; border-radius: 10px;">{{post.raw_article}}</textarea>
+      </center>
+      <center>
+            <button type="submit" id='button' data-mdb-ripple-color="dark" style="padding: 2px; font-size: 60px; color: black; border: 0ch; margin-bottom: 2%; border-radius: 10px 10px 10px 10px;  width: 200px; height: 50px;">Save Post</button>
+      </center>
+</form>
+{% else %}
+<center>
+<div class="div">
+    <h1><b>Editing Period Has Elapsed</b></h1>
+    <textarea readonly style="width:500px; padding: 10px; height: 200px; border-radius: 10px;">{{post.raw_article}}</textarea>
+</div>
+</center>
+{% endif %}
+<div style="margin-top: 60px">
+    <div>
+        <center><button onclick="check()" style="padding: 2px 2px 2px 2px; padding-bottom: 5px; width: 150px; height: 35px; background-color: red; border: none; border-radius: 10px; margin-bottom: 40px;">Delete Post</button></center>
+    </div>
+    <center>
+    <div style="display: none;" id="confirm">
+        <h2><b>Are You Sure</b></h2>
+        <div style="display: inline-flex; margin-bottom: 30px">
+            <div>
+                <a href="/delete/{{post.id}}">
+                    <button style="width: 100px; height: 35px; background-color: red; border: none; border-radius: 10px">
+                        Yes
+                    </button>
+                </a>
+            </div>
+            <div>
+                <button onclick="close_opt()" style="width: 100px; height: 35px; background-color: lightblue; border: none; border-radius: 10px; margin-left: 30px">
+                    No
+                </button>
+            </div>
+        </div>
+    </div>
+    </center>
+</div>
+{% endblock %}

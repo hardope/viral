@@ -1,0 +1,8 @@
+main/views.py
+main/models.py
+main/static
+/viral/
+main/migrations/
+main/__pycache__
+commit.py
+db.sqlite3
