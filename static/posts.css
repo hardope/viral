@@ -1,9 +1,116 @@
+#create_post{
+    display:none;
+    margin-top: 40px;
+}
+#edit_post{
+    display:none;
+    margin-top: 40px;
+}
+label {
+    padding: 10px;
+    background-color:  rgb(239, 237, 237);
+    border-radius: 10px;
+}
+#cancel_edit_profile{
+    font-size: 60px;
+    color: black;
+    border: 0ch;
+    margin-bottom: 2%;
+    border-radius: 10px 10px 10px 10px;
+    width: 200px;
+    height: 50px;
+}
+#label_cont{
+    margin: 30px 0px 20px 0px;
+}
 .name_container{
     max-width: 750px;
     width: 100vw;
     border-top: solid;
     border-color: rgb(194, 194, 194);
     border-width: 3px;
+}
+.profile_pic{
+    width: 50px;
+    border-radius: 25px;
+    margin-left: 0px;
+    margin-top: 20px;
+}
+.edit_button{
+    width: 40px;
+    height:40px;
+    border-radius: 20px;
+    margin-left: 90%;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    background-color: lightblue;
+    border: none;
+}
+.edited_button{
+    background-color: lightblue;
+    border: none;
+    margin-left: 80%;
+    width: 100px;
+    height:40px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+.cancel_button{
+    font-size: 60px;
+    color: black;
+    border: 0ch;
+    margin-bottom: 2%;
+    border-radius: 10px 10px 10px 10px;
+    width: 200px;
+    height: 50px;
+    margin-left:60px;
+}
+.submit_button{
+    font-size: 60px;
+    color: black;
+    border: 0ch;
+    margin-bottom: 2%;
+    border-radius: 10px 10px 10px 10px; 
+    width: 200px;
+    height: 50px;
+}
+#delete-btn{
+    padding: 2px 2px 2px 2px;
+    padding-bottom: 5px;
+    width: 150px;
+    height: 35px;
+    background-color: red;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 40px;
+}
+#btn-yes{
+    width: 100px;
+    height: 35px;
+    background-color: red;
+    border: none;
+    border-radius: 10px;
+}
+#btn-no{
+    width: 100px;
+    height: 35px;
+    background-color: lightblue;
+    border: none;
+    border-radius: 10px;
+    margin-left: 30px;
+}
+
+#new_post_button{
+    border-radius: 10px;
+    margin-left: 20%;
+    height: 40px;
+    border-color: rgb(224, 227, 229);
+}
+textarea{
+    width:500px;
+    padding: 10px;
+    height: 200px;
+    border-radius: 10px;
 }
 img{
     margin-top: -10px;
@@ -39,7 +146,6 @@ html {
     min-height: 50px;
     max-width: 750px;
     padding: 20px 20px 20px 20px;
-    text-align: center;
     font-size: 20px;
     word-wrap: break-word;
     margin-top: -30px;
