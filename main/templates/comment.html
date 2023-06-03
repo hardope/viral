@@ -44,7 +44,11 @@
     </div>
 </div>
 <div class="div">
-    <div>{{post.article}}</div>
+    <div>
+        {% for i in post.article %}
+            <{{i.tag}}>{{i.text}}</{{i.tag}}>
+        {% endfor %}
+    </div>
 </div>
 {% if post.media != "empty" %}
     {% if post.media == "mp4" %}
@@ -106,12 +110,20 @@
 {% if i.name == request.user %}
     <a href="/edit_post/{{i.id}}">
         <div class="div" style="color: black !important">
-            <div>{{i.article}}</div>
+            <div>
+                {% for i in i.article %}
+                    <{{i.tag}}>{{i.text}}</{{i.tag}}>
+                {% endfor %}
+            </div>
         </div>
     </a>
 {% else %}
     <div class="div">
-        <div>{{i.article}}</div>
+        <div>
+            {% for i in i.article %}
+                <{{i.tag}}>{{i.text}}</{{i.tag}}>
+            {% endfor %}
+        </div>
     </div>
 {% endif %}
      {% if i.media != "empty" %}
