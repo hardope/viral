@@ -5,8 +5,23 @@ parse datetime object to human readable time
 
 from datetime import datetime
 
-months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+]
 days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+
+
 def get_time(inp):
     currentTime = datetime.now()
     year = int(currentTime.year)
@@ -47,12 +62,13 @@ def get_time(inp):
                 c_day = days[c_day]
                 result = f"{c_day} at {old_hour}:{old_minute:02d}"
             else:
-                result = f"{months[old_month - 1]} {old_day} at {old_hour}:{old_minute:02d}"
+                result = (
+                    f"{months[old_month - 1]} {old_day} at {old_hour}:{old_minute:02d}"
+                )
 
         else:
             result = f"{months[old_month - 1]} {old_day} at {old_hour}:{old_minute:02d}"
     else:
         result = f"{months[old_month - 1]} {old_day}, {old_year} at {old_hour}:{old_minute:02d}"
-
 
     return result
